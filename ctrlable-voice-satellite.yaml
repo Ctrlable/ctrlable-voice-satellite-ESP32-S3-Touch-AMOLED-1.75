@@ -845,7 +845,7 @@ display:
     spi_id: display_spi
     cs_pin: GPIO12
     reset_pin: GPIO39
-    data_rate: 80MHz
+    data_rate: 40MHz
     # te_pin: GPIO13  # optional tearing effect sync
     dimensions:
       width: 466
@@ -853,7 +853,7 @@ display:
     color_order: RGB
     invert_colors: false
     brightness: 255
-    update_interval: 33ms
+    update_interval: never
     init_sequence:
       - [0x11]                 # Sleep Out
       - [0xFE, 0x00]           # Command Set extension
@@ -1019,6 +1019,23 @@ display:
           it.printf(cx, cy, id(font_response), Color(55, 55, 55), TextAlign::CENTER, "Muted");
           id(draw_timer_timeline).execute();
           id(draw_active_timer_widget).execute();
+
+interval:
+  - interval: 1000ms
+    id: animation_interval
+    then:
+      # Only animate when not in mid-voice-pipeline to avoid starving I2S.
+      # Remove or shorten this interval once the QSPI clock issue is resolved.
+      - if:
+          condition:
+            lambda: |
+              int p = id(voice_assistant_phase);
+              return !id(init_in_progress) &&
+                     p != ${voice_assist_listening_phase_id} &&
+                     p != ${voice_assist_thinking_phase_id} &&
+                     p != ${voice_assist_replying_phase_id};
+          then:
+            - component.update: main_display
 
 number:
   - platform: template
