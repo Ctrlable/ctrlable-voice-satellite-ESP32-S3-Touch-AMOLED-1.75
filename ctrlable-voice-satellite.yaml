@@ -839,7 +839,7 @@ touchscreen:
 
 # 1.75" Round AMOLED Display Configuration (466x466 with CO5300 Driver)
 display:
-  - platform: qspi_dbi
+  - platform: mipi_spi
     model: CUSTOM
     id: main_display
     spi_id: display_spi
@@ -1019,23 +1019,6 @@ display:
           it.printf(cx, cy, id(font_response), Color(55, 55, 55), TextAlign::CENTER, "Muted");
           id(draw_timer_timeline).execute();
           id(draw_active_timer_widget).execute();
-
-interval:
-  - interval: 1000ms
-    id: animation_interval
-    then:
-      # Only animate when not in mid-voice-pipeline to avoid starving I2S.
-      # Remove or shorten this interval once the QSPI clock issue is resolved.
-      - if:
-          condition:
-            lambda: |
-              int p = id(voice_assistant_phase);
-              return !id(init_in_progress) &&
-                     p != ${voice_assist_listening_phase_id} &&
-                     p != ${voice_assist_thinking_phase_id} &&
-                     p != ${voice_assist_replying_phase_id};
-          then:
-            - component.update: main_display
 
 number:
   - platform: template
