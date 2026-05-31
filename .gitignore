@@ -1,0 +1,8 @@
+secrets.yaml
+.esphome/
+*.bak
+.DS_Store
+__pycache__/
+*.pyc
+.vscode/
+.idea/
