@@ -47,7 +47,7 @@ substitutions:
   voice_assist_muted_phase_id: "12"
   voice_assist_timer_finished_phase_id: "20"
 
-  font_family: Figtree
+  font_family: Outfit
   font_glyphsets: GF_Latin_Core
 
 esphome:
@@ -811,7 +811,7 @@ font:
       family: ${font_family}
       weight: 300
     id: font_response
-    size: 15
+    size: 18
     glyphsets:
       - ${font_glyphsets}
   - file:
