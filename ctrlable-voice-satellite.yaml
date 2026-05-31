@@ -841,6 +841,7 @@ touchscreen:
 display:
   - platform: mipi_spi
     model: CUSTOM
+    bus_mode: quad
     id: main_display
     spi_id: display_spi
     cs_pin: GPIO12
