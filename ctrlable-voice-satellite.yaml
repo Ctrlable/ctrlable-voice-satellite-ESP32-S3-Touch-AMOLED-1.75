@@ -783,6 +783,7 @@ spi:
     type: quad
     clk_pin: GPIO38
     data_pins: [4, 5, 6, 7]
+    frequency: 80MHz
 
 ## CST9217/FT3168 touchscreen configuration
 #touchscreen:
