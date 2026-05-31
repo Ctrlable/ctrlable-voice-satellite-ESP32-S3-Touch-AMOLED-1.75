@@ -1024,5 +1024,4 @@ number:
     initial_value: 200
     set_action:
       - lambda: |-
-          // Note: Brightness control not available on GC9A01
-          ESP_LOGW("brightness", "Brightness control not supported on this display");
+          id(main_display).set_brightness(x / 255.0f);
