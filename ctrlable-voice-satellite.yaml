@@ -951,7 +951,7 @@ display:
           it.fill(id(idle_color));
           it.filled_circle(233, 233, 230, Color::BLACK);
           it.image(233, 233, id(casita_idle), ImageAlign::CENTER);
-          it.printf(233, 370, id(font_response), Color::WHITE, TextAlign::CENTER, "Home Assistant");
+          it.printf(233, 370, id(font_response), Color::WHITE, TextAlign::CENTER, "Ctrlable Pro");
           id(draw_timer_timeline).execute();
           id(draw_active_timer_widget).execute();
       - id: listening_page
@@ -1005,7 +1005,7 @@ display:
           it.fill(id(loading_color));
           it.filled_circle(233, 233, 230, Color::BLACK);
           it.image(233, 233, id(casita_initializing), ImageAlign::CENTER);
-          it.printf(233, 370, id(font_response), Color::WHITE, TextAlign::CENTER, "Home Assistant");
+          it.printf(233, 370, id(font_response), Color::WHITE, TextAlign::CENTER, "Ctrlable Pro");
       - id: muted_page
         lambda: |-
           it.fill(Color::BLACK);
