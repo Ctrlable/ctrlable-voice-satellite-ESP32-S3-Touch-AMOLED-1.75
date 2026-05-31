@@ -857,7 +857,6 @@ display:
       - [0x11]                 # Sleep Out
       - [0xFE, 0x00]           # Command Set extension
       - [0xC4, 0x80]           # SPI Interface Control (enable QSPI mode)
-      - [0x3A, 0x55]           # Pixel Format: 16-bit/pixel
       - [0x53, 0x24]           # Display Control: STE + BCTRL (enables 0x51 brightness writes)
       - [0x63, 0xFF]           # Display Brightness (max brightness)
       - [0x29]                 # Display ON
