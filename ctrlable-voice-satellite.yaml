@@ -727,7 +727,6 @@ font:
       type: gfonts
       family: ${font_family}
       weight: 300
-      italic: true
     id: font_request
     size: 15
     glyphsets:
