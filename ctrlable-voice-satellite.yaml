@@ -852,7 +852,6 @@ display:
       height: 466
     color_order: RGB
     invert_colors: false
-    brightness: 255
     update_interval: never
     init_sequence:
       - [0x11]                 # Sleep Out
